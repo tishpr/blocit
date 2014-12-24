@@ -4,4 +4,14 @@ class WelcomeController < ApplicationController
 
   def about
   end
-end
+
+  def map
+  end
+
+  def login
+  end
+    
+  end
+    
+
+
