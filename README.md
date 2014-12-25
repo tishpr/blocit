@@ -30,3 +30,5 @@ Things you may want to cover:
 * 	<tt>rake doc:app</tt>.
 
 ### My app is pushed to heroku at: tish-bloccit.herokuapp.com [tish-bloccit](http://tish-bloccit.herokuapp.com/ "Tisha's version").
+
+[] https://tish-bloccit.herokuapp.com/
