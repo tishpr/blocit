@@ -2,47 +2,40 @@
 <html>
 <head>
 
-  <title>Bloccit</title>
-<<<<<<< HEAD
-  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
-=======
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
->>>>>>> bootstrap-css
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title>Bloccit</title>
+
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
 </head>
 
 <body>
     <div class="container">
-<h1>All Page Views</h1>
+      <h1>All Page Views</h1>
 
-<p>This is the page that is served up when a user views a page</p>
-<<<<<<< HEAD
-
-   <ul>
-=======
-   <ul class="nav nav-tabs">
->>>>>>> bootstrap-css
-        <li><%= link_to "Home", welcome_index_path %></li>
-        <li><%= link_to "About", welcome_about_path %></li>
-        <li><%= link_to "Map", welcome_map_path %></li>
-        <li><%= link_to "Login", welcome_login_path %></li>
-   </ul>
+      <p>This is the page that is served up when a user views a page</p>
 
 
 
-<%= yield %>
+        <ul class="nav nav-tabs">
+
+            <li><%= link_to "Home", welcome_index_path %></li>
+            <li><%= link_to "About", welcome_about_path %></li>
+            <li><%= link_to "Map", welcome_map_path %></li>
+            <li><%= link_to "Login", welcome_login_path %></li>
+        </ul>
 
 
-</div>
+
+      <%= yield %>
 
 
+  </div>
 
-    
-
-
-
- </div>
 </body>
+
 </html>
