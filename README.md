@@ -12,8 +12,10 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+> created db in checkpoint models?
 
 * Database initialization
+> db initialization ? think i did it.
 
 * How to run the test suite
 

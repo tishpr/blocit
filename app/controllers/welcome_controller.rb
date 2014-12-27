@@ -6,11 +6,7 @@ class WelcomeController < ApplicationController
   def about
   end
 
-  def map
-  end
-
-  def login
-  end
+ 
     
 end
     

@@ -1,12 +1,23 @@
-Rails.application.routes.draw do
-  get 'welcome/index'
+#Rails.application.routes.draw do
 
-  get 'welcome/about'
-
-  get 'welcome/map'
-
-  get'welcome/login'
-
-root to: 'welcome#index'
+   #resources :posts
   
+   #get 'about' => 'welcome#about'
+
+  #root to: 'welcome#index'
+  
+#end
+
+# I added this but can't get it to show correctly 
+# and application.html.erb is not behaving right either.
+
+#Bloccit::Application
+Rails.application.routes.draw do
+   
+   resources :posts
+
+   
+   get 'about' => 'welcome#about'
+
+  root to: 'welcome#index'
 end
