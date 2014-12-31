@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    
+
   end
 
   def show
-    @post = Post.find(params[:id])rails scan(/pattern/) { |match|  }
+    @post = Post.find(params[:id])
+
   end
 
   def new
