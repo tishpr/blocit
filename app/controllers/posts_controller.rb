@@ -8,9 +8,40 @@ class PostsController < ApplicationController
 
   end
 
-  def new
+  def new   # instance variable assigned to the return of Post.new related view: posts#new
+    @post = Post.new
   end
 
+
+ def create
+     @post = Post.new(params.require(:post).permit(:title, :body))
+     #raise   # good to debug with...
+     if @post.save
+       flash[:notice] = "Post was saved."
+       redirect_to @post      # expect the user to return to the show view of the Post they just created.
+     else
+       flash[:error] = "There was an error saving the post. Please try again."
+       render :new
+     end
+   end
+
+
+
   def edit
+    @post = Post.find(params[:id])
   end
+
+
+  def update
+     @post = Post.find(params[:id])
+     if @post.update_attributes(params.require(:post).permit(:title, :body))
+       flash[:notice] = "Post was updated."
+       redirect_to @post
+     else
+       flash[:error] = "There was an error saving the post. Please try again."
+       render :edit
+     end
+   end
+   
 end
+
