@@ -1,12 +1,14 @@
 
 
-<h1>All Posts</h1>
+<h1>All Posts from everywhere</h1>
 <% @posts.each do |post| %>
     <div class="media">
      <div class="media-body">
-       <h4 class="media-heading">
-         <%= link_to post.title, post %>
-       </h4>
+
+         <h4 class="media-heading">
+           <%= link_to post.title, post %>
+         </h4>
+       
      </div>
    </div>
    
