@@ -1,6 +1,8 @@
 module ApplicationHelper
+
   def my_name
-    p "Tishpr "
+    p "Tish  "
   end
+  
 end
 
