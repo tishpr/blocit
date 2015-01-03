@@ -14,15 +14,16 @@ class PostsController < ApplicationController
 
 
  def create
-     @post = Post.new(params.require(:post).permit(:title, :body))
-     #raise   # good to debug with...
-     if @post.save
-       flash[:notice] = "Post was saved."
-       redirect_to @post      # expect the user to return to the show view of the Post they just created.
-     else
-       flash[:error] = "There was an error saving the post. Please try again."
-       render :new
-     end
+     #@post = Post.new(params.require(:post).permit(:title, :body))
+      @post = current_user.posts.build(params.require(:post).permit(:title, :body)) #
+        #raise   # good to debug with...
+         if @post.save
+           flash[:notice] = "Post was saved."
+           redirect_to @post      # expect the user to return to the show view of the Post they just created.
+         else
+           flash[:error] = "There was an error saving the post. Please try again."
+           render :new
+         end
    end
 
 
