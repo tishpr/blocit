@@ -1,11 +1,11 @@
 require 'faker'
 
- # Create Users
+  # Create Users
  5.times do
    user = User.new(
-   #name:     Faker::Name.name,
-   email:    Faker::Internet.email,
-   password: Faker::Lorem.characters(10)
+     name:     Faker::Name.name,
+     email:    Faker::Internet.email,
+     password: Faker::Lorem.characters(10)
    )
    user.skip_confirmation!
    user.save!
@@ -19,7 +19,6 @@ require 'faker'
  # to avoid triggering an confirmation email when the User is saved.
  
  # The `save` method then saves this User to the database.
-
 # Create Posts
 50.times do
   Post.create!(
@@ -33,7 +32,7 @@ posts = Post.all
 # Create Comments
 100.times do
   Comment.create!(
-     # user: users.sample,   # we have not yet associated Users with Comments
+    #user: users.sample,   # we have not yet associated Users with Comments
     post: posts.sample,
     body: Faker::Lorem.paragraph
   )
