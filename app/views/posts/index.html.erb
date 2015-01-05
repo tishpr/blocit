@@ -1,18 +1,26 @@
 
 <h1>All Posts from everywhere</h1>
+
+ <% if policy(Post.new).create? %>
+    <%= link_to "New Post", new_post_path, class: 'btn btn-success' %>
+<% end %>
+
 <% @posts.each do |post| %>
+
     <div class="media">
      <div class="media-body">
 
-    <h4 class="media-heading">
+      <h4 class="media-heading">
            <%= link_to post.title, post %>
-    </h4>
+      </h4>
+
            <small>
                 submitted 
               <%= time_ago_in_words(post.created_at) %> ago by 
               <%= post.user.name %> <br/>       
                 <!-- <%= post.comments.count %> Comments   .name __ when I remove this i get the user# returned to post, when i add .name, it gives error   -->
            </small>
+
        
      </div>
    </div>
