@@ -28,9 +28,8 @@ Things you may want to cover:
 ## Bloccit: a Reddit clone to teach the fundamentals of web development and Rails 4.
 
 * Made with my mentor at [Bloc](http://bloc.io).
-* Please feel free to use a different markup language if you do not plan to run
-* 	<tt>rake doc:app</tt>.
 
-### My app is pushed to heroku at: tish-bloccit.herokuapp.com [tish-bloccit](http://tish-bloccit.herokuapp.com/ "Tisha's version").
+
+###  Heroku at: tish-bloccit.herokuapp.com [tish-bloccit](http://tish-bloccit.herokuapp.com/ "Tisha's version").
 
 [] https://tish-bloccit.herokuapp.com/
