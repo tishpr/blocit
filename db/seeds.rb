@@ -19,6 +19,7 @@ require 'faker'
  # to avoid triggering an confirmation email when the User is saved.
  
  # The `save` method then saves this User to the database.
+ 
 # Create Posts
 50.times do
   Post.create!(
