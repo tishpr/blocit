@@ -24,7 +24,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+> Using a “password meter” to the right of input field give 
+> a highly visual way to gauge the quality of the answer.  
+>    
+> This meter seems to compel people to answer the question...
 
+Mint.com registration form interrupts people when they are answering questions with immediate error messages.
 ## Bloccit: a Reddit clone to teach the fundamentals of web development and Rails 4.
 
 * Made with my mentor at [Bloc](http://bloc.io).

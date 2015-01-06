@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 20150104222103) do
+=======
+ActiveRecord::Schema.define(version: 20150105215941) do
+>>>>>>> Stashed changes
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -28,6 +32,17 @@ ActiveRecord::Schema.define(version: 20150104222103) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+<<<<<<< Updated upstream
+=======
+  end
+
+  create_table "topics", force: true do |t|
+    t.string   "name"
+    t.boolean  "public",      default: true
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+>>>>>>> Stashed changes
   end
 
   create_table "users", force: true do |t|
