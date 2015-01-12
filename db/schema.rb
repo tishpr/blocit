@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(version: 20150104222103) do
-=======
-ActiveRecord::Schema.define(version: 20150105215941) do
->>>>>>> Stashed changes
+ActiveRecord::Schema.define(version: 20150112150008) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -32,8 +28,7 @@ ActiveRecord::Schema.define(version: 20150105215941) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-<<<<<<< Updated upstream
-=======
+    t.integer  "topic_id"
   end
 
   create_table "topics", force: true do |t|
@@ -42,7 +37,6 @@ ActiveRecord::Schema.define(version: 20150105215941) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
->>>>>>> Stashed changes
   end
 
   create_table "users", force: true do |t|

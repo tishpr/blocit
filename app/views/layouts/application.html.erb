@@ -24,15 +24,19 @@
 
            <li><%= link_to "Bloccit", root_path %></li>
            <li><%= link_to "About", about_path %></li> 
-           <!-- Current user code signed up, signed in, log off  -->   
-          <div class="pull-right user-info">
+                                      <!-- Current user code signed up, signed in, log off  --> 
+
+           <div class="pull-right user-info">
            <% if current_user %>
-             Glad to see you,  <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+             Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
            <% else %>
              <%= link_to "Sign In", new_user_session_path %> or 
              <%= link_to "Sign Up", new_user_registration_path %>
            <% end %>
          </div>
+
+      
+
         </ul>
         
        <% if flash[:notice] %>

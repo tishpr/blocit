@@ -1,7 +1,13 @@
 class AddUserToPosts < ActiveRecord::Migration
   def change
-    add_column :posts, :user_id, :integer, :name 
+
+    change_table :posts do |t|
+      t.string :name
+      t.integer :user_id
+    end
+
     add_index :posts, :user_id  # create an index on user_id by adding
+
     # an add_index line in the migration's change method:
     #Indexes help optimize queries with associated attributes,
     # as is the case with querying the posts table for a specific user_id

@@ -17,9 +17,6 @@ require 'faker'
  # The `skip_confirmation!` method sets the `confirmed_at` attribute
  # to avoid triggering an confirmation email when the User is saved.
  # The `save` method then saves this User to the database.
-<<<<<<< Updated upstream
- 
-=======
 
  # Create Topics
  15.times do
@@ -30,7 +27,6 @@ require 'faker'
  end
  topics = Topic.all
 
->>>>>>> Stashed changes
 # Create Posts
 50.times do
   Post.create!(

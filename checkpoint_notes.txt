@@ -22,8 +22,8 @@ $ rails c
             > post = Post.first
 
             > post
-              #This prints out the information stored in the post variable (the instance of a Post),
-              #and proves that we have a populated variable
+              # This prints out the information stored in the post variable (the instance of a Post),
+              # and proves that we have a populated variable
 
                     #Now that you have a valid instance of Post, create a comment for it:
 
