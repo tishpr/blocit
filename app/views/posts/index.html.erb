@@ -8,11 +8,9 @@
            <%= link_to post.title, post %>
     </h4>
            <small>
-                submitted 
-              <%= time_ago_in_words(post.created_at) %> ago by 
-              <%= post.user.name %> <br/>       
-                <!-- <%= post.comments.count %> Comments   .name __ when I remove this i get the user# returned to post, when i add .name, it gives error   -->
-           </small>
+         submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
+         <%= post.comments.count %> Comments
+       </small>
        
      </div>
    </div>
