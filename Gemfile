@@ -54,7 +54,7 @@ gem 'spring',        group: :development
  
  gem 'figaro', '1.0'
 # Figaro was written to make it easy to securely configure Rails applications.
-gem 'pundit'
+ gem 'pundit'
 #a gem that makes it easier to authorize different users for different tasks in your app
 
  
