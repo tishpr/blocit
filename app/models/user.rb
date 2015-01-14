@@ -7,13 +7,15 @@ class User < ActiveRecord::Base
 
   has_many :posts
   
-end
+
 
   #Authorization Checkpoint - does the user have the role ____?
  def admin?
-   self.role == 'admin'    # self is implied, but I am including it for my understanding
+   role == 'admin'    # self is implied, but I am including it for my understanding
  end
  
  def moderator?
-   self.role == 'moderator'
+   role == 'moderator'
  end
+
+end

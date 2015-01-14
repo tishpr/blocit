@@ -8,15 +8,16 @@
           <h4 class="media-heading">
             <%= link_to topic.name, topic %>
           </h4>
-          <small>
-            <%= topic.description %>
-          </small>
+              <small>
+                <%= topic.description %>
+              </small>
         </div>
       </div>
     <% end %>
   </div>
+  
   <div class="col-md-4">
-    <% if policy(Topic.new).create? %>
+ <% if policy(Topic.new).create? %>
       <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
     <% end %>
   </div>
