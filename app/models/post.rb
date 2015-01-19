@@ -6,6 +6,13 @@ class Post < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
   
+      # from checkpoint Validating Posts 
+      # from branch "validating posts"
+   validates :title, length: { minimum: 5 }, presence: true
+   validates :body, length: { minimum: 20 }, presence: true
+   validates :topic, presence: true
+   validates :user, presence: true
+
 end
 # this is a Post class model   app/models/post.rb
 # it goes along with a migration file (begins with a timestamp)
