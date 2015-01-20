@@ -2,7 +2,7 @@
  <%= form_for [topic, post] do |f| %>
   <% if post.errors.any? %>
     <div class="alert alert-danger">
-      <h4>There are <%= pluralize(post.errors.count, "error") %>.</h4>
+      <h4>There <%= (post.errors.count == 1 ? "is " : "are ") + pluralize(post.errors.count, "error") %>.</h4>
       <ul>
         <% post.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
