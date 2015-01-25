@@ -1,5 +1,12 @@
-# Add configuration values here, as shown below.
+
 SENDGRID_PASSWORD: fbs1b8cw
 SENDGRID_USERNAME: app32738776@heroku.com
-#SECRET_KEY_BASE:     ** not sure what to put in here...*** nnn          
-#MY_SUPER_SECRET_VARIABLE: secret123456
+AWS_ACCESS_KEY_ID: AKIAIPMMMEZJUUUFSD2A   
+AWS_SECRET_ACCESS_KEY: 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
+AWS_REGION: us-west-1
+development:
+  AWS_BUCKET: tish-bloccit-app-development
+production:
+  AWS_BUCKET: tish-bloccit-app-production
+
+      # YAML is whitespace-dependent.
