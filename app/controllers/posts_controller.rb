@@ -29,7 +29,7 @@ class PostsController < ApplicationController
                      redirect_to [@topic, @post]     # expect the user to return to the show view of the Post they just created.
 
                    else
-                     flash[:error] = "There was an error saving the post. Please try again."
+                     flash[:error] = "Snap! There was an error saving the post. Please try again."
                      render :new
                    end
 
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
                redirect_to [@topic, @post]
 
              else
-               flash[:error] = "There was an error saving the post. Please try again."
+               flash[:error] = "Snap! There was an error saving the post. Please try again."
                render  :edit
              end
              
@@ -65,7 +65,7 @@ class PostsController < ApplicationController
            private
 
             def post_params
-              params.require(:post).permit(:title, :body)
+              params.require(:post).permit(:title, :body, :image)
             end
    
 end

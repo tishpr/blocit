@@ -11,23 +11,24 @@ class ApplicationController < ActionController::Base
    
       protected
 
-      def configure_permitted_parameters
-        devise_parameter_sanitizer.for(:sign_up) << :name
-      end
-      protect_from_forgery with: :exception
+          def configure_permitted_parameters
+            devise_parameter_sanitizer.for(:sign_up) << :name
+          end
 
-      before_action :configure_permitted_parameters, if: :devise_controller?
+            protect_from_forgery with: :exception
+
+            before_action :configure_permitted_parameters, if: :devise_controller?
      
-       protected
+      protected
  
-       def configure_permitted_parameters
-         devise_parameter_sanitizer.for(:sign_up) << :name
-       end
-   
+           def configure_permitted_parameters
+             devise_parameter_sanitizer.for(:sign_up) << :name
+           end
+       
 
-      def hello
-        render text: "<h1>Hello</h1><p>Welcome home. This comes from a hello method in the application_controller.rb</p>"
-      end
+          def hello
+            render text: "<h1>Hello</h1><p>Welcome home. This comes from a hello method in the application_controller.rb</p>"
+          end
 
 end
  

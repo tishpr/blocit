@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   has_many :comments
   belongs_to :user
   belongs_to :topic  # associates post to Topics
-
+  mount_uploader :image, ImageUploader
   default_scope { order('created_at DESC') }
   
       # from checkpoint Validating Posts 
