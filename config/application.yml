@@ -1,12 +1,1 @@
 
-SENDGRID_PASSWORD: fbs1b8cw
-SENDGRID_USERNAME: app32738776@heroku.com
-AWS_ACCESS_KEY_ID: AKIAIPMMMEZJUUUFSD2A   
-AWS_SECRET_ACCESS_KEY: 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
-AWS_REGION: us-west-1
-development:
-  AWS_BUCKET: tish-bloccit-app-development
-production:
-  AWS_BUCKET: tish-bloccit-app-production
-
-      # YAML is whitespace-dependent.
