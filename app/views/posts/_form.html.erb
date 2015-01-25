@@ -19,7 +19,7 @@
       <%= simple_form_for([topic, post], html: { class: 'form-horizontal' })  do |f| %>                
           <%= f.input :title, placeholder: "Enter post title" %>
           <%= f.input :body, placeholder: "Enter post body" %>
-          <%= f.button :submit %>
+          
 
       <% if post.image? %>
           <div class="form-group">
@@ -36,7 +36,8 @@
            </div>
 
           <div class="form-group">
-            <%= f.submit "Update", class: 'btn btn-success' %>
+            <%= f.button :submit %>
+            <!-- <%= f.submit "Update", class: 'btn btn-success' %> -->
           </div>
           
 
