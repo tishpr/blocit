@@ -13,7 +13,7 @@ group :production do
  end
 
   group :development do
-   gem 'sqlite3'
+   gem 'sqlite3'  
  end
 
 # Use SCSS for stylesheets
@@ -39,19 +39,15 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-
 #gem 'rails_12factor', group: :production
-
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
 #ruby '2.0.0'
 
-
  gem 'bootstrap-sass', '~> 3.1.1'
 
- 
  gem 'figaro', '1.0'
 # Figaro was written to make it easy to securely configure Rails applications.
  gem 'pundit'
@@ -64,9 +60,10 @@ gem 'spring',        group: :development
  gem 'country_select'
 
 # image loading
-  gem 'carrierwave'
+ gem 'carrierwave'
  gem 'mini_magick'
  gem 'fog'
+ gem 'will_paginate', '~> 3.0.5'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

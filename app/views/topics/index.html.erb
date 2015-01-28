@@ -15,6 +15,7 @@
         </div>
       </div>
     <% end %>
+    <%= will_paginate @topics %>
   </div>
   
   <div class="col-md-4">
@@ -22,4 +23,5 @@
       <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
     <% end %>
   </div>
+
 </div>

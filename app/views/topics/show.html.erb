@@ -7,24 +7,26 @@
 <div class="row">
   <div class="col-md-8">
           <p class="lead"><%= @topic.description %></p>
+
               <% @posts.each do |post| %>
     <div class="media">
       <div class="media-body">
-              <h4 class="media-heading">
-                <%= link_to (markdown post.title), [@topic, post] %>
-                <%= image_tag( post.image.thumb.url ) %>
-              </h4>
+          <h4 class="media-heading">
+            <%= link_to (markdown post.title), [@topic, post] %>
+            <%= image_tag( post.image.thumb.url ) %>
+          </h4>
 
-                <small>
-                   <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
-                   submitted <%= time_ago_in_words(post.created_at) %> ago by
-                   <%= post.user.name %><br/>
-                   <%= post.comments.count %> Comments
-                </small>
+            <small>
+               <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
+               submitted <%= time_ago_in_words(post.created_at) %> ago by
+               <%= post.user.name %><br/>
+               <%= post.comments.count %> Comments
+            </small>
    
       </div>
     </div>
-                    <% end %>
+    <% end %>
+       <%= will_paginate @posts %> 
   </div>
 
         <div class="col-md-4">
