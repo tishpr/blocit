@@ -1,4 +1,4 @@
-<h1><%= markdown @post.title %></h1>
+<h1><%= markdown @post.title %></h1> 
 <div class="row">
   
     <div class="col-md-8">
@@ -27,7 +27,5 @@
 
 </div>
 <h4>Comments:</h4>
-<% @comments.each do |c|  %>
-   <%= render partial: '/comments/comment', locals: { comment: c } %>
-<% end %>
+   <%= render partial: '/comments/comment', collection: @comments %>
     <%= render partial: '/comments/form', locals: { topic: @topic, post: @post } %>
