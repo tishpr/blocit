@@ -5,8 +5,9 @@ class PostsController < ApplicationController
     #end
 
           def show
-            @post = Post.find(params[:id])
-             @topic = Topic.find(params[:topic_id])
+            @topic = Topic.find(params[:topic_id])
+            @post = Post.find(params[:id]) 
+            @comments = @post.comments
           end
 
           def new   # instance variable assigned to the return of Post.new related view: posts#new
@@ -59,11 +60,11 @@ class PostsController < ApplicationController
              
            end
 
-           private
+   private
 
-            def post_params
-              params.require(:post).permit(:title, :body, :image)
-            end
+    def post_params
+      params.require(:post).permit(:title, :body, :image)
+    end
    
 end
 

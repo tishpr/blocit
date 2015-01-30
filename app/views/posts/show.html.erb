@@ -23,6 +23,11 @@
         <% end %>
 
       </div>
+
+
 </div>
-
-
+<h4>Comments:</h4>
+<% @comments.each do |c|  %>
+   <%= render partial: '/comments/comment', locals: { comment: c } %>
+<% end %>
+    <%= render partial: '/comments/form', locals: { topic: @topic, post: @post } %>

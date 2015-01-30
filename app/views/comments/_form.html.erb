@@ -1,0 +1,9 @@
+ <%= simple_form_for([topic, post, post.comments.new], html: { class: 'form-horizontal' })  do |f| %>                
+          
+          <%= f.input :body, placeholder: "Comment on this post" %>
+
+          <div class="form-group">
+            <%= f.button :submit %> 
+          </div>
+
+        <% end %>
