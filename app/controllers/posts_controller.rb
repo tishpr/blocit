@@ -8,6 +8,7 @@ class PostsController < ApplicationController
             @topic = Topic.find(params[:topic_id])
             @post = Post.find(params[:id]) 
             @comments = @post.comments
+
           end
 
           def new   # instance variable assigned to the return of Post.new related view: posts#new
@@ -24,6 +25,7 @@ class PostsController < ApplicationController
                 @post.topic = @topic
                   #raise   # good to debug with...
                 authorize @post
+                #authorize @comment
 
                    if @post.save
                      flash[:notice] = "Post was saved."

@@ -9,7 +9,7 @@
        <%= @post.user.name %>
 
      </small>
- <br><br>
+    <br><br>
         <p><%= image_tag(@post.image.url) if @post.image? %></p> <br>
       <p><%= markdown @post.body %></p>
    
@@ -24,8 +24,10 @@
 
       </div>
 
-
 </div>
-<h4>Comments:</h4>
-   <%= render partial: '/comments/comment', collection: @comments %>
-    <%= render partial: '/comments/form', locals: { topic: @topic, post: @post } %>
+  <h4>Comments:</h4>
+  <%= render partial: '/comments/comment', collection: @comments %>
+<% if current_user.present? %>
+   <%= render partial: '/comments/form', locals: { topic: @topic, post: @post, comment: @comments } %>
+     
+   <% end %>
