@@ -19,7 +19,7 @@
       <div class="col-md-4">
 
         <% if policy(@post).edit? %>
-          <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
+          <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success btn-miki' %>
         <% end %>
 
       </div>
@@ -27,7 +27,9 @@
 </div>
   <h4>Comments:</h4>
   <%= render partial: '/comments/comment', collection: @comments %>
-<% if current_user.present? %>
+
+<% if current_user.present? %>  <!-- what is the difference between this and policy? -->
+
    <%= render partial: '/comments/form', locals: { topic: @topic, post: @post, comment: @comments } %>
      
    <% end %>

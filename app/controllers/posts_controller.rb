@@ -4,12 +4,12 @@ class PostsController < ApplicationController
     #authorize @posts
     #end
 
-          def show
-            @topic = Topic.find(params[:topic_id])
-            @post = Post.find(params[:id]) 
-            @comments = @post.comments
+        def show
+          @topic = Topic.find(params[:topic_id])
+          @post = Post.find(params[:id]) 
+          @comments = @post.comments
 
-          end
+        end
 
           def new   # instance variable assigned to the return of Post.new related view: posts#new
              @topic = Topic.find(params[:topic_id])
@@ -18,25 +18,25 @@ class PostsController < ApplicationController
           end
 
 
-          def create
-                @topic = Topic.find(params[:topic_id])
-                @post = current_user.posts.build(post_params)
-                #@post = current_user.posts.build(params.require(:post).permit(:title, :body))
-                @post.topic = @topic
-                  #raise   # good to debug with...
-                authorize @post
-                #authorize @comment
+              def create
+                    @topic = Topic.find(params[:topic_id])
+                    @post = current_user.posts.build(post_params)
+                    #@post = current_user.posts.build(params.require(:post).permit(:title, :body))
+                    @post.topic = @topic
+                      #raise   # good to debug with...
+                    authorize @post
+                    #authorize @comment
 
-                   if @post.save
-                     flash[:notice] = "Post was saved."
-                     redirect_to [@topic, @post]     # expect the user to return to the show view of the Post they just created.
+                       if @post.save
+                         flash[:notice] = "Post was saved."
+                         redirect_to [@topic, @post]     # expect the user to return to the show view of the Post they just created.
 
-                   else
-                     flash[:error] = "Snap! There was an error saving the post. Please try again."
-                     render :new
-                   end
-
-          end
+                       else
+                         flash[:error] = "Snap! There was an error saving the post. Please try again."
+                         render :new
+                       end
+              end
+              
 
 
           def edit

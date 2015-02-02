@@ -6,13 +6,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :posts
-  has_many :comments
+  has_many :comments 
+   
   mount_uploader :avatar, AvatarUploader
-
+                  # has_secure_password -- when will I use this? fr:www.railstutorial.org/book/modeling_users
 
   #Authorization Checkpoint - does the user have the role ____?
  def admin?
-   role == 'admin'    # self is implied, but I am including it for my understanding
+   role == 'admin'    
  end
  
  def moderator?

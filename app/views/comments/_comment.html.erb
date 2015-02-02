@@ -4,6 +4,6 @@
       <i>written by: <%= comment.user.name %></i>
 
       </p>
-   
-
+  
+    <%= link_to "Delete", topic_post_comment_url(comment, post_id: @post.id, topic_id: @topic.id), method: :delete %>
 </div>
