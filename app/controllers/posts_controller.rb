@@ -1,66 +1,77 @@
 class PostsController < ApplicationController
-  #def index
-    #@posts = Post.all
-    #authorize @posts
-    #end
+ 
 
-        def show
-          @topic = Topic.find(params[:topic_id])
-          @post = Post.find(params[:id]) 
-          @comments = @post.comments
+  def show
+    @topic = Topic.find(params[:topic_id])
+    @post = Post.find(params[:id]) 
+    @comments = @post.comments
 
-        end
+  end
 
-          def new   # instance variable assigned to the return of Post.new related view: posts#new
-             @topic = Topic.find(params[:topic_id])
-            @post = Post.new
-             authorize @post
-          end
+  def new   # instance variable assigned to the return of Post.new related view: posts#new
+    @topic = Topic.find(params[:topic_id])
+    @post = Post.new
+     authorize @post
+  end
 
+  def create
+    @topic = Topic.find(params[:topic_id])
+    @post = current_user.posts.build(post_params)
+    #@post = current_user.posts.build(params.require(:post).permit(:title, :body))
+    @post.topic = @topic
+      #raise   # good to debug with...
+    authorize @post
+    #authorize @comment
 
-              def create
-                    @topic = Topic.find(params[:topic_id])
-                    @post = current_user.posts.build(post_params)
-                    #@post = current_user.posts.build(params.require(:post).permit(:title, :body))
-                    @post.topic = @topic
-                      #raise   # good to debug with...
-                    authorize @post
-                    #authorize @comment
+     if @post.save
+       flash[:notice] = "Post was saved."
+       redirect_to [@topic, @post]     # expect the user to return to the show view of the Post they just created.
 
-                       if @post.save
-                         flash[:notice] = "Post was saved."
-                         redirect_to [@topic, @post]     # expect the user to return to the show view of the Post they just created.
-
-                       else
-                         flash[:error] = "Snap! There was an error saving the post. Please try again."
-                         render :new
-                       end
-              end
+     else
+       flash[:error] = "Snap! There was an error saving the post. Please try again."
+       render :new
+     end
+  end
               
+  def edit
+    @topic = Topic.find(params[:topic_id])
+    @post = Post.find(params[:id])  #defines object
+    authorize @post   # authorizing object
+  end
 
+  def update
+    @topic = Topic.find(params[:topic_id])
+     @post = Post.find(params[:id])
 
-          def edit
-            @topic = Topic.find(params[:topic_id])
-            @post = Post.find(params[:id])  #defines object
-            authorize @post   # authorizing object
-          end
+     authorize @post  
 
-          def update
-              @topic = Topic.find(params[:topic_id])
-               @post = Post.find(params[:id])
+      if @post.update_attributes(post_params)
+       flash[:notice] = "Post was updated."
+       redirect_to [@topic, @post]
 
-               authorize @post  
+     else
+       flash[:error] = "Snap! There was an error saving the post. Please try again."
+       render  :edit
+     end
+     
+   end
 
-                if @post.update_attributes(post_params)
-                 flash[:notice] = "Post was updated."
-                 redirect_to [@topic, @post]
+   def destroy
+    @topic = Topic.find(params[topic:id])
+    @post = Post.find(params[:id])
+    title = @post.title
+     authorize @post
+   
 
-               else
-                 flash[:error] = "Snap! There was an error saving the post. Please try again."
-                 render  :edit
-               end
-             
-           end
+   if @post.destroy
+     flash[:notice] = "\"#{title}\" was deleted successfully."
+     redirect_to @topics
+   else
+     flash[:error] = "There was an error deleting the post."
+     render :show
+   end
+  end
+   
 
    private
 
