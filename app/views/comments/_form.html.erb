@@ -1,4 +1,4 @@
- <%= simple_form_for([topic, post, post.comments.new], html: { class: 'form-horizontal' })  do |f| %>                
+ <%= simple_form_for([@topic, @post], html: { class: 'form-horizontal' })  do |f| %>                
           
           <%= f.input :body, placeholder: "Comment on this post" %>
 
@@ -7,3 +7,5 @@
           </div>
 
     <% end %>
+
+    <!-- topic, post, post.comments.new -->

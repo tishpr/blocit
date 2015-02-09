@@ -45,9 +45,11 @@ class ApplicationPolicy
     record.class  #For example, it was used in the definition of show?
   end
 
-  def can_moderate?(user, record)
-    (record.user == user || user.moderator? || user.admin?)
-  end
+  
+
+  #def can_moderate?(user, record)
+  #user == record.user || user.role?(:admin) || user.role?(:moderator)
+#end
 
   class Scope
     attr_reader :user, :scope
@@ -61,5 +63,12 @@ class ApplicationPolicy
       scope
     end
   end
+  
+private
+  def can_moderate?(user, record)
+    (record.user == user || user.moderator? || user.admin?)
+  end
+
+
 end
 

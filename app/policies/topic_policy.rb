@@ -13,6 +13,6 @@
    end
 
    def destroy?
-    user.present? && can_moderate?(user, record)
+    create?#user.present? && can_moderate?(user, record)
    end
  end

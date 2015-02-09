@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
   @comment.post = @post
 
 
-  if @comment.save
-   flash[:notice] = "Your comment was saved."
-   redirect_to [@post.topic, @post]     # expect the user to return to the show view 
+   if @comment.save
+     flash[:notice] = "Your comment was saved."
+     redirect_to [@post.topic, @post]     # expect the user to return to the show view 
                                             #of the Post they just created.
    else
      flash[:error] = "Snap! There was an error saving the comment. Please try again."
@@ -21,24 +21,19 @@ class CommentsController < ApplicationController
   
 
 def destroy
-  @post = Post.find(params[:post_id])
-  @comment = @post.comments.find(params[:id])
+ @topic = Topic.find(params[:topic_id])
+   @post = @topic.posts.find(params[:post_id])
+   @comment = @post.comments.find(params[:id])
 
-  authorize @comment
-
-    if @comment.destroy 
-     flash[:notice] = "Comment was removed"
-     redirect_to topic_post_url(@post, topic_id: @post.topic.id) #more explicit for nesting 
-    else
-     flash[:error] = "Comment could not be deleted, try again later"
+   authorize @comment
+   if @comment.destroy
+     flash[:notice] = "Comment was removed."
      redirect_to [@topic, @post]
-    end
-
+   else
+     flash[:error] = "Comment couldn't be deleted. Try again."
+     redirect_to [@topic, @post]
+   end
  end
-
-def can_moderate?(user, record)
-  user == record.user || user.role?(:admin) || user.role?(:moderator)
-end
 
 end
 
