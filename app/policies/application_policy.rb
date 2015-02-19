@@ -28,7 +28,7 @@ class ApplicationPolicy
   
 
   def update?
-    can_moderate?(user, record)
+    can_moderate?
   end
 
   def edit?
@@ -41,15 +41,16 @@ class ApplicationPolicy
      update?
   end
 
+
+  private
+  def can_moderate?
+    user.present? && (record.user == user || user.moderator? || user.admin?)
+  end
+
   def scope  #Pundit defines a scope method which is used as a base for model searches. 
     record.class  #For example, it was used in the definition of show?
   end
 
-  
-
-  #def can_moderate?(user, record)
-  #user == record.user || user.role?(:admin) || user.role?(:moderator)
-#end
 
   class Scope
     attr_reader :user, :scope
@@ -62,13 +63,7 @@ class ApplicationPolicy
     def resolve
       scope
     end
-  end
-  
-private
-  def can_moderate?(user, record)
-    (record.user == user || user.moderator? || user.admin?)
-  end
-
+   end
 
 end
 

@@ -10,10 +10,8 @@ Bloccit::Application.routes.draw do
    end
  
    resources :posts, only: [] do
-     resources :comments, only: [:show, :create, :destroy]
+     resources :comments, only: [:create, :destroy]
    end
- 
-
  
       get 'contact' => 'welcome#contact'
       get 'about' => 'welcome#about'
