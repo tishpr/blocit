@@ -30,5 +30,5 @@ class ApplicationController < ActionController::Base
             render text: "<h1>Hello</h1><p>Welcome home. This comes from a hello method in the application_controller.rb</p>"
           end
 
-end
+end 
  
