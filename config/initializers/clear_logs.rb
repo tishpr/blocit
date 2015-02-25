@@ -1,0 +1,19 @@
+if Rails.env.development?
+  MAX_LOG_SIZE = 2.megabytes
+
+  logs = File.join(Rails.root, 'log', '*.log')
+  if Dir[logs].any? {|log| File.size?(log).to_i > MAX_LOG_SIZE }
+    $stdout.puts "Runing rake log:clear"
+    `rake log:clear`
+  end
+end
+
+# added this to limit logs. automate it during server startup by adding this snippet to the initializer
+# from: http://www.devbattles.com/en/sand/post-645-Tips+for+Getting+Started+with+Rails
+
+
+# bundle exec rake notes
+
+# TODO checklogs to see if this new page works 
+
+#FIXME
