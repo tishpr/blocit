@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :posts
-  has_many :comments 
+  has_many :comments
+  has_many :votes, dependent: :destroy 
    
   mount_uploader :avatar, AvatarUploader
                   # has_secure_password -- when will I use this? fr:www.railstutorial.org/book/modeling_users
