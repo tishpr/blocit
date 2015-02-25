@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
+  #has_many :votes, dependent: :destroy  #to enable post.votes  from: votes Checkpoint
   belongs_to :user
   belongs_to :topic  # associates post to Topics
   mount_uploader :image, ImageUploader
