@@ -27,4 +27,8 @@
        end
      end
    end
+<<<<<<< HEAD
  end
+=======
+ end
+>>>>>>> votes
