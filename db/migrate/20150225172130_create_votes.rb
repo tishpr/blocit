@@ -1,5 +1,8 @@
 class CreateVotes < ActiveRecord::Migration
-  def change
+
+
+def change
+  unless table_exists? :votes
     create_table :votes do |t|
       t.string :value
       t.references :user, index: true

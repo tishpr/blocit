@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe Vote do
   
-
   describe "validations" do
 
     describe "value validation" 
@@ -19,16 +18,10 @@ describe Vote do
       expect( @down_vote ).to eq( true )
       expect( @invalid_vote ).to eq( false )
       end
-
-      
+ 
     end
-  end
 
-
-
-
-
-#
+end
 
 
 
