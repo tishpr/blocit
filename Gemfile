@@ -18,6 +18,7 @@ source 'https://rubygems.org'
  group :development, :test do
    gem 'rspec-rails', '~> 3.0'
   end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -67,7 +68,7 @@ gem 'spring',        group: :development
  gem 'fog'
  gem 'will_paginate', '~> 3.0.5'
 
-
+ #gem 'test_helper', '~> 0.0.1'
   
 
 # Use ActiveModel has_secure_password

@@ -1,7 +1,7 @@
 class AddTopicIdToPosts < ActiveRecord::Migration
   def change
-    change_table :posts do |table|
-      table.references :topic
-    end
+   add_column :posts, :topic_id, :integer
+   add_index :posts, :topic_id
+    
   end
 end

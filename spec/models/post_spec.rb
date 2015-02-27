@@ -4,7 +4,9 @@
    describe "vote methods" do
  
      before do
-       @post = Post.create(title: 'post title', body: 'post body')
+      user = User.create
+      topic = Topic.create
+       @post = Post.create(title: 'post title', body: 'post body 123456789009987766')
        3.times { @post.votes.create(value: 1) }
        2.times { @post.votes.create(value: -1) }
      end
@@ -27,8 +29,4 @@
        end
      end
    end
-<<<<<<< HEAD
  end
-=======
- end
->>>>>>> votes
