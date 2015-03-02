@@ -18,6 +18,7 @@ Things you may want to cover:
 > db initialization ? think i did it.
 
 * How to run the test suite
+      http://sourceforge.net/projects/zaproxy/files/2.3.1/ZAP_2.3.1_Lite.tar.gz/download
 
 * Services (job queues, cache servers, search engines, etc.)
 

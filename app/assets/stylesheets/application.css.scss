@@ -1,3 +1,8 @@
+  
+ // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+
+ //@import "bootstrap-sprockets";
+ 
   @import "bootstrap";
 
    .user-info {
@@ -11,5 +16,9 @@
  a {font-size: 1.2em;}
  /* only affects the Sign out link */
  
+ // vote arrows
  
- 
+ .vote-arrows {
+   width: 50px;
+   text-align: center;
+ }
