@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
- 
-
+ #  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]:destroy
+#def create
+    #@article = Article.find(params[:article_id])
+    # ...
+  #end
   def show
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id]) 
@@ -16,15 +19,13 @@ class PostsController < ApplicationController
 
   def create
     @topic = Topic.find(params[:topic_id])
-    @post = current_user.posts.build(post_params)
-
-    #@post = current_user.posts.build(params.require(:post).permit(:title, :body))
-    @post.topic = @topic   # why do I need this? 
-      #raise   # good to debug with...
+    @post = current_user.posts.build(post_params)  
+    @post.topic = @topic   
     authorize @post
     #authorize @comment
 
      if @post.save
+        @post.create_vote
        flash[:notice] = "Post was saved."
        redirect_to [@topic, @post]     # expect the user to return to the show view of the Post they just created.
 
@@ -57,20 +58,19 @@ class PostsController < ApplicationController
      
    end
 
-   def destroy
-    @topic = Topic.find(params[:topic_id])
-    @post = Post.find(params[:id])
-    title = @post.title
-    authorize @post
+  def destroy
+      @topic = Topic.find(params[:topic_id])
+      @post = Post.find(params[:id])
+      title = @post.title
+      authorize @post
    
-
-   if @post.destroy
-     flash[:notice] = "\"#{title}\" was deleted successfully."
-     redirect_to @topic
-   else
-     flash[:error] = "There was an error deleting the post."
-     render :show
-   end
+     if @post.destroy
+       flash[:notice] = "\"#{title}\" was deleted successfully."
+       redirect_to @topic
+     else
+       flash[:error] = "There was an error deleting the post."
+       render :show
+     end
   end
    
 
