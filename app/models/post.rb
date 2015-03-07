@@ -24,23 +24,27 @@ class Post < ActiveRecord::Base
      new_rank = points + age_in_days
      update_attribute(:rank, new_rank)
    end
-
       # default_scope { order('created_at DESC') } ~ orders from most recent first ~
    default_scope { order('rank DESC') } # ordered by rank
 
-    
    validates :topic, presence: true
    validates :user, presence: true
    validates :title, length: { minimum: 5 }, presence: true
    validates :body, length: { minimum: 20 }, presence: true
  
+ private
   def create_vote
-    user.votes.create(value: 1, post: self)
+    #user.
+    user.votes.create({value: 1, post: self})
     #Vote.create(value: 1, post_id: self.id, user_id: user.id)
   end
 
-  def save_with_initial_vote
-  end
+  #def save_with_initial_vote! do  |t|
+    #  @post = Post.new 
+    #  @post.user.create_vote(1, self)
+    #  @post.save
+
+  #end
 
 
 end
