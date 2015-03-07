@@ -39,6 +39,10 @@ class Post < ActiveRecord::Base
     #Vote.create(value: 1, post_id: self.id, user_id: user.id)
   end
 
+  def save_with_initial_vote
+  end
+
+
 end
 # this is a Post class model   app/models/post.rb
 # it goes along with a migration file (begins with a timestamp)
