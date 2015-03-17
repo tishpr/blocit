@@ -15,8 +15,12 @@
    def destroy?
     create?#can_moderate?(user, record)
    end
+
+   def show?
+     record.public? || user.present?
+   end
  end
 
 
 
- # this was in create?   
+ 
