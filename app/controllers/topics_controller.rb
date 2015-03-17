@@ -2,10 +2,9 @@
 class TopicsController < ApplicationController
   
   def index    #shows pagination of topics
-            
-   #@topics = Topic.paginate(page: params[:page], per_page: 10)
     @topics = Topic.visible_to(current_user).paginate(page: params[:page], per_page: 5)
-    authorize @topics
+            # returns scoped collection of topics
+     authorize @topics
   end
 
   def new
