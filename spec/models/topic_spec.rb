@@ -16,7 +16,6 @@ describe Topic do
      describe "privately_viewable" do
        it "returns a relation of all private topics" do
         expect(Topic.privately_viewable).to eq( [@private_topic] )
-        expect(user).where(current_user)
          scope :privately_viewable, -> (current_user: true) where(public: 'false')           
        end
      end
@@ -32,7 +31,7 @@ describe Topic do
        it "returns only public topics if user is nil" do
         user = nil
         expect(Topic.publicly_viewable).where(user: nil)
-      #end
+    
      end
    end
  end

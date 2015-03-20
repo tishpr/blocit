@@ -3,9 +3,10 @@ class PostsController < ApplicationController
 
       def show
         @topic = Topic.find(params[:topic_id])
+        authorize @topic     # authorize here so don't show a post of a private topic 
         @post = Post.find(params[:id]) 
         @comments = @post.comments
-         authorize @topic  # you don't want to show a post of a private topic 
+          
 
       end
 
