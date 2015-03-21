@@ -2,8 +2,7 @@
 class TopicsController < ApplicationController
   
   def index    #shows pagination of topics
-    @topics = Topic.visible_to(current_user).paginate(page: params[:page], per_page: 5)
-            # returns scoped collection of topics
+    @topics = Topic.visible_to(current_user).paginate(page: params[:page], per_page: 5)      
      authorize @topics
   end
 
@@ -14,8 +13,9 @@ class TopicsController < ApplicationController
 
   def show  # shows pagination of posts 
    @topic = Topic.find(params[:id])
+   authorize @topic
     @posts = @topic.posts.paginate(page: params[:page], per_page: 10)
-    authorize @topic
+    
   end
 
   def edit
@@ -47,8 +47,9 @@ class TopicsController < ApplicationController
 
   def destroy
    @topic = Topic.find(params[:id])
+   authorize @topic
     name = @topic.name
-     authorize @topic
+     
 
    if @topic.destroy
      flash[:notice] = "\"#{name}\" was deleted successfully."

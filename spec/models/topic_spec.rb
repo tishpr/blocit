@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe Topic do
    describe "scopes" do
  
@@ -15,22 +17,21 @@ describe Topic do
  
      describe "privately_viewable" do
        it "returns a relation of all private topics" do
-        expect(Topic.privately_viewable).to eq( [@private_topic] )
-         scope :privately_viewable, -> (current_user: true) where(public: 'false')           
+        expect(Topic.privately_viewable).to eq( [@private_topic] )        
        end
      end
  
      describe "visible_to(user)" do
        it "returns all topics if the user is present" do
          user = true # sneaky solution; we don't need a real user, just something truthy
-         expect(Topic.publicly_viewable).to eq(public: true)  
-         scope :visible_to, -> (user) { where(public: true) }
+         expect(Topic.visible_to(user)).to eq(Topic.all)  
+       
          end   # Your code here
        end
  
        it "returns only public topics if user is nil" do
         user = nil
-        expect(Topic.publicly_viewable).where(user: nil)
+        expect(Topic.publicly_viewable).to eq( [@public_topic] )
     
      end
    end
