@@ -17,7 +17,11 @@ source 'https://rubygems.org'
 
  group :development, :test do
    gem 'rspec-rails', '~> 3.0'
+    gem 'capybara', '~> 2.4.4' 
   end
+    
+#Capybara is an integration testing tool 
+#for rack based web applications. It simulates how a user would interact with a website
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
