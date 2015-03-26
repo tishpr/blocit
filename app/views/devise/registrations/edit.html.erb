@@ -41,32 +41,37 @@
 
     <h3>Edit personal information</h3>
 
-      <%= form_for(current_user) do |f| %>
-          <div class="form-group">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control', placeholder: "Enter name", autofocus: true %>
-          </div>
+    <%= form_for(current_user) do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', placeholder: "Enter name", autofocus: true %>
+      </div>
 
-                <% if current_user.avatar? %>
-                    <div class="form-group">
-                      <p>Current avatar</p>
-                      <%= image_tag( current_user.avatar.profile.url ) %>
-                    </div>
-                <% end %>
+        <% if current_user.avatar? %>
+      <div class="form-group">
+        <p>Current avatar</p>
+          <%= image_tag( current_user.avatar.profile.url ) %>
+      </div>
+
+    <% end %>
                
-               <div class="form-group">
-                 <%= f.label :avatar %>
-                 <%= f.file_field :avatar %>
-                 <%= f.hidden_field :avatar_cache %>
-               </div>
+      <div class="form-group">
+         <%= f.label :avatar %>
+         <%= f.file_field :avatar %>
+         <%= f.hidden_field :avatar_cache %>
+      </div> 
 
+      <div class="form-group">
+       <%= f.label :email_favorites %>
+       <%= f.check_box :email_favorites %>
+       <p class="help-block">Be notified for new comments on your favorites</p>
+     </div>
 
-          <div class="form-group">
-            <%= f.submit "Update", class: 'btn btn-success' %>
-          </div>
+      <div class="form-group">
+        <%= f.submit "Update", class: 'btn btn-success' %>
+       </div>
           
     <% end %>
-
 
 
     <h3>Cancel my account</h3>
