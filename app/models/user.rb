@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy  
    
   mount_uploader :avatar, AvatarUploader
-                  # has_secure_password -- when will I use this? fr:www.railstutorial.org/book/modeling_users
+  # has_secure_password -- when will I use this? fr:www.railstutorial.org/book/modeling_users
 
   #Authorization Checkpoint - does the user have the role ____?
  def admin?
@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
   end
 
   def voted(post)
-   post.votes.where(user_id: self).first
+   #post.votes.where(user_id: self).first
+   self.votes.where(post_id: post.id).first
   end
 
 end
