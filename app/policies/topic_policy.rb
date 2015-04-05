@@ -17,10 +17,9 @@
    end
 
    def show?
-              #new rule to the TopicPolicy so that private topics
-              # will only be visible to signed-in users:
-     record.public? || user.present?
-   end
+       record.public? || user.present?                                        #new rule to the TopicPolicy so that private topics
+                                              # will only be visible to signed-in users:
+    end
 
  end
 

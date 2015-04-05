@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-    <title>Bloccit</title>
+ <head>
+  <title>Bloccit</title>
 
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
 
@@ -14,58 +13,64 @@
 </head>
 
 <body>
-    <div class="container">
+  <div class="container">
 
-      <h1>All Page Views</h1>
+    <h1>All Page Views</h1>
 
-      <p>This is the Home Page </p>
+    <p>This is the Home Page </p>
 
-        <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs">
 
-               <li><%= link_to "Bloccit", root_path %></li>
-               <li><%= link_to "Topics", topics_path %></li>
-               <li><%= link_to "About", about_path %></li> 
-               <li><%= link_to "Contact", contact_path %></li> 
+       <li><%= link_to "Bloccit", root_path %></li>
+       <li><%= link_to "Topics", topics_path %></li>
+       <li><%= link_to "About", about_path %></li> 
+       <li><%= link_to "Contact", contact_path %></li> 
 
-              <!-- Current user  avatar, signed up, signed in, log off  --> 
+      <!-- Current user  avatar, signed up, signed in, log off  --> 
 
-                <div class="pull-right user-info">
-                 <% if current_user %>
+        <div class="pull-right user-info">
+         <% if current_user %>
+          <%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
 
-                  <%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
-                  Hello <%= link_to (current_user.name || current_user.email), edit_user_registration_path %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-                 <% else %>
-                   <%= link_to "Sign In", new_user_session_path %> or 
-                   <%= link_to "Sign Up", new_user_registration_path %>
-                 <% end %>
-                </div>
+          Hello <%= link_to (current_user.name || current_user.email), current_user %>!
+            <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
+              <span class="glyphicon glyphicon-user"></span>
+            <% end %>
 
-        </ul>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+              <span class="glyphicon glyphicon-log-out"></span>
+            <% end %>
+            
+         <% else %>
+           <%= link_to "Sign In", new_user_session_path %> or 
+           <%= link_to "Sign Up", new_user_registration_path %>
+         <% end %>
+
+        </div>
+
+      </ul>
         
-           <% if flash[:notice] %>
-             <div class="alert alert-success">
-               <button type="button" class="close" data-dismiss="alert">&times;</button>
-               <%= flash[:notice] %>
-             </div>
-           <% elsif flash[:error] %>
-             <div class="alert alert-danger">
-               <button type="button" class="close" data-dismiss="alert">&times;</button>
-               <%= flash[:error] %>
-             </div>
-           <% elsif flash[:alert] %>
-             <div class="alert alert-warning">
-               <button type="button" class="close" data-dismiss="alert">&times;</button>
-               <%= flash[:alert] %>
-             </div>
-        <% end %>
-
-
-
-                      <%= yield %>
+       <% if flash[:notice] %>
+         <div class="alert alert-success">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <%= flash[:notice] %>
+         </div>
+       <% elsif flash[:error] %>
+         <div class="alert alert-danger">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <%= flash[:error] %>
+         </div>
+       <% elsif flash[:alert] %>
+         <div class="alert alert-warning">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <%= flash[:alert] %>
+         </div>
+    <% end %>
+      <%= yield %>
 
 
   </div>
 
-</body>
+ </body>
 
 </html>
