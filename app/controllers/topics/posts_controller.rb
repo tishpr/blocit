@@ -1,10 +1,7 @@
-class PostsController < ApplicationController
+class Topics::PostsController < ApplicationController
  #  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]:destroy
 
  def index
-   def index
-     @posts = Post.visible_to(current_user).where("posts.created_at > ?", 7.days.ago).paginate(page: params[:page], per_page: 10)
-   end
  end
 
 
@@ -29,7 +26,8 @@ class PostsController < ApplicationController
     @post.save_with_initial_vote
     if @post.votes(:value == 1) # This fixed the problem of error msg in wrong place
      flash[:notice] = "Post was saved."
-     redirect_to [@topic, @post]     # expect the user to return to the show view of the Post they just created.      
+     redirect_to [@topic, @post]     # expect the user to return to the show view of the Post they just created.
+       
     else
      flash[:error] = "Snap! There was an error saving the post. Please try again."
      render :new
