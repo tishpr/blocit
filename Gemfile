@@ -76,7 +76,10 @@ gem 'spring',        group: :development
  gem 'mini_magick'
  gem 'fog'
  gem 'will_paginate', '~> 3.0.5'
+
+ # performance monitoring
  gem 'newrelic_rpm'
+ gem "puma"  #server set up April 9 for "popular posts checkpoint" for dev and prod?
 
  #gem 'test_helper', '~> 0.0.1'
   
