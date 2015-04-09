@@ -76,6 +76,7 @@ gem 'spring',        group: :development
  gem 'mini_magick'
  gem 'fog'
  gem 'will_paginate', '~> 3.0.5'
+ gem 'newrelic_rpm'
 
  #gem 'test_helper', '~> 0.0.1'
   
