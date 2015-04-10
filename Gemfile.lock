@@ -67,6 +67,11 @@ GEM
     erubis (2.7.0)
     excon (0.43.0)
     execjs (2.2.2)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
     figaro (1.0.0)
@@ -274,6 +279,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   country_select
   devise
+  factory_girl_rails (~> 4.0)
   faker
   figaro (= 1.0)
   fog
