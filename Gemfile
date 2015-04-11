@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-  gem 'rails', '4.1.7'
+gem 'rails', '4.1.7'
 
 # Use sqlite3 as the database for Active Record
 			#gem 'sqlite3'
@@ -59,28 +59,26 @@ gem 'spring',        group: :development
 
 #ruby '2.0.0'
 
- 
-
- gem 'figaro', '1.0'
+gem 'figaro', '1.0'
 # Figaro was written to make it easy to securely configure Rails applications.
- gem 'pundit'
+gem 'pundit'
 #a gem that makes it easier to authorize different users for different tasks in your app
 
- gem 'redcarpet'
+gem 'redcarpet'
 
- gem 'simple_form'
+gem 'simple_form'
 
- gem 'country_select'
+gem 'country_select'
 
 # image loading
- gem 'carrierwave'
- gem 'mini_magick'
- gem 'fog'
- gem 'will_paginate', '~> 3.0.5'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'will_paginate', '~> 3.0.5'
 
- # performance monitoring
- gem 'newrelic_rpm'
- gem "puma"  #server set up April 9 for "popular posts checkpoint" for dev and prod?
+# performance monitoring
+gem 'newrelic_rpm'
+gem "puma"  #server set up April 9 for "popular posts checkpoint" for dev and prod?
 
 # for testing:
 
