@@ -1,10 +1,8 @@
 require 'rails_helper'
- 
+ include TestFactories
+
  describe User do
- 
-   include TestFactories
- 
-   describe "#favorited(post)" do
+   
     before do
       @another_not_favorite_post = associated_post
       @favorite_post = associated_post
@@ -13,7 +11,7 @@ require 'rails_helper'
       @not_favorite = associated_post
 
     end
-
+    describe "#favorited(post)" do
     it "returns `nil` if the user has not favorited the post" do
       expect( @user.favorited(@not_favorite) ).to eq(nil)
     end
@@ -57,3 +55,8 @@ require 'rails_helper'
  end
 
  # creating common objects in a before block inside of describe "#favorited(post)"
+
+
+
+
+ 

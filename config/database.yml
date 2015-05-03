@@ -28,18 +28,6 @@ production:
 
 
 
-# changed the default database / 
-# the code from Gemfile are below::
-
-
-#group :production do
-
- #  gem 'pg'
-   #gem 'rails_12factor' #this seems like it was commented out...
- #end
- 
-# group :development do
-  # gem 'sqlite3'
- #end
+# changed the default database  
 
  

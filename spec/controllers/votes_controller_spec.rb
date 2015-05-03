@@ -1,14 +1,14 @@
  require 'rails_helper'
 
-   include TestFactories
+   #include TestFactories
  include  Devise::TestHelpers
 
  describe VotesController do
   
  before do 
        request.env["HTTP_REFERER"] = '/'
-       @user = authenticated_user
-       @post = associated_post
+       @user #= authenticated_user
+       @post #= associated_post
        sign_in @user
  end
  
@@ -27,7 +27,4 @@
        }.to change{ @post.down_votes }.by 1
      end
    end
-
-
-
  end

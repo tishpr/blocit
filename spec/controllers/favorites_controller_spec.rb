@@ -2,12 +2,12 @@
  
  describe FavoritesController do
  
-   include TestFactories
+   #include TestFactories
    include Devise::TestHelpers
  
    before do
-     @post = associated_post
-     @user = authenticated_user
+     @post #= associated_post
+     @user #= authenticated_user
      sign_in @user
    end
  

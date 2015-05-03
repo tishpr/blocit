@@ -47,3 +47,24 @@ Mint.com registration form interrupts people when they are answering questions w
 ###  Heroku at: tish-bloccit.herokuapp.com [tish-bloccit](http://tish-bloccit.herokuapp.com/ "Tisha's version").
 
 [] https://tish-bloccit.herokuapp.com/
+********************************************************************
+
+# git command menu 
+> git status
+> git add .
+> git commit -m "   "
+> git push origin checkpoint-23-interfaces
+> git checkout master
+> git push
+> git
+> git checkout -b checkpoint-23-interfaces  # reflects name of checkpoint #
+> git status
+> git checkout -b assignment-23-interfaces  # start out workflow for assignment with same pattern #
+> git 
+$ git add .
+  # …
+$ git commit -m "Assignment 23 completed"
+  # …
+$ git push origin assignment-23-interfaces
+# …
+$ git checkout master

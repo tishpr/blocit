@@ -1,6 +1,6 @@
 
 require 'rails_helper'
-include TestFactories
+#include TestFactories
 
 describe Vote do
   describe "validations" do
