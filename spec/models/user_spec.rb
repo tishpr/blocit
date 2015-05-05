@@ -2,11 +2,11 @@ require 'rails_helper'
  describe User do
    
     before do
-      @another_not_favorite_post = associated_post
-      @favorite_post = associated_post
-      @user = authenticated_user
+      @another_not_favorite_post = create(:user_with_post_and_comment).posts.first
+      @favorite_post = create(:user_with_post_and_comment).posts.first
+      @user = create(:user)
       @favorite = Favorite.create(post_id: @favorite_post.id, user_id: @user.id)
-      @not_favorite = associated_post
+      @not_favorite = create(:user_with_post_and_comment).posts.first
 
     end
     describe "#favorited(post)" do
@@ -22,20 +22,19 @@ require 'rails_helper'
       expect( @user.favorited(@another_not_favorite_post)).to eq(nil)
     end
    end
-
+# last error here ln 32
    describe ".top_rated" do
      before do
-       @user1 = create(:user)
-       post = create(:post, user: @user1)
-       create(:comment, user: @user1, post: post)
- 
-       @user2 = create(:user)
-       post = create(:post, user: @user2)
-       2.times { create(:comment, user: @user2, post: post) }
+       @user1 = create(:user_with_post_and_comment)
+       #post = @user1.posts.first
+
+       @user2 = create(:user_with_post_and_comment)
+       #post = @user2.posts.first
+       create(:comment, user: @user2, post: @user2.posts.first)
      end
  
      it "returns users ordered by comments + posts" do
-       expect( User.top_rated ).to eq([@user2, @user1])
+       expect( [User.top_rated] ).to eq([@user2, @user1])
      end
  
      it "stores a `posts_count` on user" do
