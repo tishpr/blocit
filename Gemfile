@@ -13,7 +13,7 @@ end
 
 group :development do
   gem 'sqlite3'
-  gem 'spring' #group: :development   
+  #gem 'spring'   
 end
 
  group :development, :test do
@@ -53,7 +53,7 @@ gem 'sdoc', '~> 0.4.0',     group: :doc
 #gem 'rails_12factor', group: :production
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
- #can I move this to group: development ? 
+gem 'spring',            group: :development #can I move this to group: development ? 
 
 #ruby '2.0.0'
 

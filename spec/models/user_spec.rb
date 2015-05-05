@@ -1,6 +1,4 @@
 require 'rails_helper'
- include TestFactories
-
  describe User do
    
     before do
@@ -25,9 +23,7 @@ require 'rails_helper'
     end
    end
 
-
    describe ".top_rated" do
- 
      before do
        @user1 = create(:user)
        post = create(:post, user: @user1)

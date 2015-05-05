@@ -1,4 +1,4 @@
-RSpec.configure do |config|
+ RSpec.configure do |config|
   
     #This says that before the entire test suite runs,
     # clear the test database out completely. 
