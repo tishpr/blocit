@@ -1,17 +1,17 @@
- <% if policy(Favorite.new).create? %>
+<% if policy(Favorite.new).create? %>
 
- <div class="favorite">
+  <div class="favorite">
 
 
-   <% if favorite = current_user.favorited(post) %>
-     <%= link_to [post, favorite], class: 'btn btn-danger', method: :delete do %>
-         <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unfavorite
-       <% end %>
-   <% else %>
-     <%= link_to [post, Favorite.new], class: 'btn btn-primary', method: :post do %>
-   <i class="glyphicon glyphicon-star"> </i>&nbsp; Favorite
- <% end %>
+    <% if favorite = current_user.favorited(post) %>
+      <%= link_to [post, favorite], class: 'btn btn-danger', method: :delete do %>
+      <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unfavorite
+      <% end %>
+      <% else %>
+      <%= link_to [post, Favorite.new], class: 'btn btn-primary', method: :post do %>
+      <i class="glyphicon glyphicon-star"> </i>&nbsp; Favorite
+      <% end %>
+   <% end %>
+
+  </div>
 <% end %>
-
- </div>
- <% end %>
